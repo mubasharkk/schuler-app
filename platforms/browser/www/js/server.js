@@ -26,8 +26,8 @@ function Server (){
 
     this.render = function(tpl, data){
 
-        Templates().render(tpl, data, function(){
-            $('div#page-content').html('test');
+        Templates().render(tpl, data, function(content){
+            $('div#page-content').html(content);
         });
     };
 

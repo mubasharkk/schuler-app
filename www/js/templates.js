@@ -8,8 +8,11 @@ function Templates (){
     };
 
     this.render = function(tpl, data, callback){
-        $.get(this.getPath(tpl), function(file){
-            console.log(file);
+        $.get(this.getPath(tpl), function(fileContent){
+            for(var key in data){
+                fileContent = fileContent.replace('{{' + key + '}}', data[key]);
+            }
+            callback(fileContent);
         });
     };
 
